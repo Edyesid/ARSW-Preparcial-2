@@ -42,4 +42,22 @@ public class HttpConnectApi {
 		System.out.println(json);
 		return json;
 	}
+	
+	public String getUbication(String country) {
+		System.out.println(
+				"------------------------------======================getCountry==============================--------------------------");
+		String json = null;
+		try {
+			kong.unirest.HttpResponse<String> response = Unirest.get("https://rapidapi.p.rapidapi.com/name/" + country)
+					.header("x-rapidapi-host", "restcountries-v1.p.rapidapi.com")
+					.header("x-rapidapi-key", "bf3a51a2fbmsha9cb1d8479b1204p1ed44ejsn98781f64912c")
+					.asString();
+			json = response.getBody();
+		} catch (UnirestException e) {
+			e.printStackTrace();
+		}
+		System.out.println(json);
+		return json;
+	}
+	
 }

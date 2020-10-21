@@ -19,4 +19,9 @@ public class CoronavirusService {
 		String virus = hca.getAllCountries();
 		return virus;
 	}
+	
+	public String getUbication(String country) {
+		String ubication = hca.getUbication(country);
+		return ubication;
+	}
 }

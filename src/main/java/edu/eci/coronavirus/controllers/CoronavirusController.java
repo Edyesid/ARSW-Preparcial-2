@@ -53,4 +53,18 @@ public class CoronavirusController {
     	}
     }
     
+    @GetMapping(value="/{country}/{country}")
+    public ResponseEntity<?> getUbicaciones(@PathVariable("country") String country) {
+    	HttpHeaders headers = new HttpHeaders();
+    	headers.set("Content-Type", "application/json");
+    	try {
+    		
+    		String data = crs.getUbication(country);
+			return new ResponseEntity<>(data,HttpStatus.ACCEPTED);
+    		
+    	} catch (Exception e) {
+            return new ResponseEntity<>("Error 404",HttpStatus.NOT_FOUND);
+    	}
+    }
+    
 }
